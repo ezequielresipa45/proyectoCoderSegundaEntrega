@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="principal">
+
+    <h2>Registro de Usuarios</h2>
+
+    <div class="contenedorDeBotones">
+
+        <button id="botonAgregar">Agregar Usuario</button>
+
+        <button id="botonUsuarios">Usuarios</button>
+
+    </div>
+
+
+</div>
+
+
+<form action="" id="formulario" >
+
+    <h2>Agregar Usuario</h2>
+
+
+    
+    <div class="form-control">
+
+
+        <input type="text" id="nombre" required="" autocomplete="nope">
+        <label>
+            <span style="transition-delay:0ms">N</span>
+            <span style="transition-delay:50ms">o</span>
+            <span style="transition-delay:100ms">m</span>
+            <span style="transition-delay:150ms">b</span>
+            <span style="transition-delay:200ms">r</span>
+            <span style="transition-delay:250ms">e</span>
+
+        </label>
+
+
+    </div>
+
+
+
+    <div class="form-control">
+    <input type="text" id="apellido" required="" autocomplete="nope">
+    <label>
+        <span style="transition-delay:0ms">A</span>
+        <span style="transition-delay:50ms">p</span>
+        <span style="transition-delay:100ms">e</span>
+        <span style="transition-delay:150ms">l</span>
+        <span style="transition-delay:200ms">l</span>
+        <span style="transition-delay:250ms">i</span>
+        <span style="transition-delay:250ms">d</span>
+        <span style="transition-delay:250ms">o</span>
+
+    </label>
+   </div>
+
+
+   <div class="form-control">
+    <input type="number" id="edad" required="" autocomplete="nope" min="0">
+    <label>
+        <span style="transition-delay:0ms">E</span>
+        <span style="transition-delay:50ms">d</span>
+        <span style="transition-delay:100ms">a</span>
+        <span style="transition-delay:150ms">d</span>
+    </label>
+   </div>
+
+
+   <div class="form-control">
+    <input type="email" id="correo" required="" autocomplete="nope">
+    <label>
+        <span style="transition-delay:0ms">E</span>
+        <span style="transition-delay:50ms">m</span>
+        <span style="transition-delay:100ms">a</span>
+        <span style="transition-delay:150ms">i</span>
+        <span style="transition-delay:150ms">l</span>
+    </label>
+   </div>
+
+
+
+   <div class="form-control">
+
+
+    <select id="select">
+        
+        <option value="masculino" id="masculino">Masculino</option>
+        <option value="femenino"  id="femenino">Femenino</option>
+        
+      </select>
+
+
+
+
+
+   </div>
+
+
+
+
+
+    
+ 
+    
+   <button type="submit"  class="learn-more">
+    <span class="circle" aria-hidden="true">
+    <span class="icon arrow"></span>
+    </span>
+    <span class="button-text">Agregar</span>
+  </button>   
+
+
+
+<!-- <input type="submit" value="Submit"> -->
+
+
+
+
+
+
+</form>
+
+
+<div class="contenedorUsuariosRegistrados" id="contenedorUsuariosRegistrados"></div>
+
+<div class="contenedorErrorEdad">
+
+    <lord-icon
+    src="https://cdn.lordicon.com/otyynlki.json"
+    trigger="loop"
+    delay="400"
+    colors="primary:#c71f16"
+    style="width:70px;height:70px">
+</lord-icon>
+
+    <h2>Lo siento!</h2>
+    <p>La edad del usuario no cumple los requisitos para registrarla.</p>
+
+</div>
+    
+
+
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
