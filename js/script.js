@@ -14,28 +14,24 @@
 
 let formulario = document.getElementById("formulario");
 
-let principial = document.getElementsByClassName('principal')[0];
+let principial = document.getElementsByClassName("principal")[0];
 
-let botonAgregar = document.getElementById('botonAgregar');
+let botonAgregar = document.getElementById("botonAgregar");
 
-let botonUsuarios = document.getElementById('botonUsuarios');
+let botonUsuarios = document.getElementById("botonUsuarios");
 
-let contenedorUsuariosRegistrados = document.getElementById('contenedorUsuariosRegistrados');
+let contenedorUsuariosRegistrados = document.getElementById(
+  "contenedorUsuariosRegistrados"
+);
 
-let contenedorErrorEdad = document.getElementsByClassName('contenedorErrorEdad')[0];
+let contenedorErrorEdad = document.getElementsByClassName(
+  "contenedorErrorEdad"
+)[0];
 
-
-
-botonAgregar.addEventListener('click',()=>{
-
-    formulario.style.display = 'flex';
-    principial.style.display = 'none';
-})
-
-
-
-
-
+botonAgregar.addEventListener("click", () => {
+  formulario.style.display = "flex";
+  principial.style.display = "none";
+});
 
 // BOTON PARA  INGRESO DE USUARIOS, OTRO BOTON PARA VER LOS USUARIOS INGRESADOR
 
@@ -55,160 +51,78 @@ class Usuarios {
   }
 }
 
+let arregloLocalStorageParse =
+  JSON.parse(localStorage.getItem("listaUsuarios")) ?? [];
 
-let arregloLocalStorageParse = [];
+let arregloUsuarios = JSON.parse(localStorage.getItem("listaUsuarios")) ?? [];
 
-let arregloUsuarios = [];
-
-
-
-
+console.log(arregloUsuarios);
 
 formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    let nombreInputValue = document.getElementById('nombre').value;
-    let apellidoInputValue = document.getElementById('apellido').value;
-    let edadInputValue = document.getElementById('edad').value;
-    let correoInputValue = document.getElementById('correo').value;
-    let select = document.getElementById('select');
-    let selectValues = select.options[select.selectedIndex].value;
+  let nombreInputValue = document.getElementById("nombre").value;
+  let apellidoInputValue = document.getElementById("apellido").value;
+  let edadInputValue = document.getElementById("edad").value;
+  let correoInputValue = document.getElementById("correo").value;
+  let select = document.getElementById("select");
+  let selectValues = select.options[select.selectedIndex].value;
 
+  if (edadInputValue >= 18) {
+    let usuarioCreado = new Usuarios(
+      nombreInputValue,
+      apellidoInputValue,
+      edadInputValue,
+      correoInputValue,
+      selectValues
+    );
 
-    if (edadInputValue >= 18) {
-        
+    arregloUsuarios.push(usuarioCreado);
 
+    //GUARDAR EN LOCALSTORAGE
 
-    
-        let usuarioCreado = new Usuarios(nombreInputValue,apellidoInputValue,edadInputValue,correoInputValue,selectValues);
+    const guardarLocal = (clave, valor) => {
+      localStorage.setItem(clave, valor);
+    };
 
+    //ALMACENAR USUARIOS
 
-            arregloUsuarios.push(usuarioCreado);
-
-
-            //GUARDAR EN LOCALSTORAGE
-
-        const guardarLocal = (clave,valor) => {localStorage.setItem(clave,valor)};
-
-        //ALMACENAR USUARIOS
-
-        for(const usuario of arregloUsuarios){
-
-            guardarLocal('listaUsuarios', JSON.stringify(arregloUsuarios));
-        }
-
-
-    
-        // const almacenados = JSON.parse(localStorage.getItem('listaUsuarios'));
-        
-        
-        //         // Iteramos almacenados con For
-        
-        //         for (const objeto of almacenados){
-        //            arregloLocalStorageParse.push(objeto);
-                    
-        //         }
-
-        // ARRREGLO arregloLocalStorageParse [objetos, objetos, objetos]
-
-        // INCORPORAMOS AL DOM LOS USUARIOS REGISTRADOS ALMACENADOS EN EL ARREGLO 
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-    }else{
-
-
-
-        alert("El usuario es MENOR, no se puede registrar");
-        
+    for (const usuario of arregloUsuarios) {
+      guardarLocal("listaUsuarios", JSON.stringify(arregloUsuarios));
     }
 
 
-    
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'El usuario ah sido registrado',
+        showConfirmButton: false,
+        timer: 2000
+      })
+
+  } else {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El usuario ingresado es menor de edad.',
+        
+      })
+  }
 });
 
+botonUsuarios.addEventListener("click", () => {
+  contenedorUsuariosRegistrados.style.display = "flex";
+  principial.style.display = "none";
+});
 
-
-botonUsuarios.addEventListener('click',()=>{
-
-    contenedorUsuariosRegistrados.style.display = 'flex';
-    principial.style.display = 'none';
-
-})
-
-
-
-
-        // ARRREGLO arregloLocalStorageParse [objetos, objetos, objetos]
-
-        // INCORPORAMOS AL DOM LOS USUARIOS REGISTRADOS ALMACENADOS EN EL ARREGLO 
-
-        
-
-        // let parrafo = document.createElement("p");
-            
-        //     for (let index = 0; index < arregloLocalStorageParse.length; index++) {
-                
-
-                
-
-        //         parrafo.innerHTML =                 
-        //         `<p> ${arregloLocalStorageParse[index].nombre} </p>
-        //         <p> ${arregloLocalStorageParse[index].apellido} </p>
-        //         <p> ${arregloLocalStorageParse[index].edad} </p>
-        //         <p> ${arregloLocalStorageParse[index].correo} </p>
-        //         <p> ${arregloLocalStorageParse[index].genero} </p>
-        //         <p> ${arregloLocalStorageParse[index].id} </p>`;
-
-        //         contenedorUsuariosRegistrados.appendChild(parrafo);
-
-
-        //     }
-
-        const almacenados = JSON.parse(localStorage.getItem('listaUsuarios'));
-        
-        
-                // Iteramos almacenados con For
-        
-                for (const objeto of almacenados){
-                   arregloLocalStorageParse.push(objeto);
-                    
-                }
-
-
-
-   console.log(arregloLocalStorageParse);
-
-
-   
-            
-   for (let index = 0; index < arregloLocalStorageParse.length; index++) {
-       
-
-       
-    let parrafo = document.createElement("p");
-       parrafo.innerHTML =                 
-       `<p> ${arregloLocalStorageParse[index].nombre} </p>
+for (let index = 0; index < arregloLocalStorageParse.length; index++) {
+  let parrafo = document.createElement("p");
+  parrafo.innerHTML = `<p> ${arregloLocalStorageParse[index].nombre} </p>
        <p> ${arregloLocalStorageParse[index].apellido} </p>
        <p> ${arregloLocalStorageParse[index].edad} </p>
        <p> ${arregloLocalStorageParse[index].correo} </p>
        <p> ${arregloLocalStorageParse[index].genero} </p>
        <p> ${arregloLocalStorageParse[index].id} </p>`;
 
-       contenedorUsuariosRegistrados.appendChild(parrafo);
-
-
-   }
+  contenedorUsuariosRegistrados.appendChild(parrafo);
+}

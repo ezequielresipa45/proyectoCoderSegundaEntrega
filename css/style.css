@@ -41,18 +41,19 @@ body {
 }
 /* ***********************************************/
 
-/* CONTENEDOR ERROR DE EDAD ESTILOS*/
-.contenedorErrorEdad {
-  display: none;
-  background-color: #fff;
-}
-/* ***********************************************/
+
 
 /* CONTENEDOR DATOS DE USUARIOS REGISTRADOS ESTILOS*/
 .contenedorUsuariosRegistrados {
   display: none;
   background-color: red;
   color: #fff;
+  justify-content: center;
+  align-items: center;
+  
+ 
+  padding: 50px;
+  gap: 20px;
 }
 /* ***********************************************/
 
