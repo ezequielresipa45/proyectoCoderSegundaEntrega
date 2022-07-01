@@ -20,6 +20,8 @@ let botonAgregar = document.getElementById("botonAgregar");
 
 let botonUsuarios = document.getElementById("botonUsuarios");
 
+let botonSalir = document.getElementById("botonSalir");
+
 let contenedorUsuariosRegistrados = document.getElementById(
   "contenedorUsuariosRegistrados"
 );
@@ -56,8 +58,6 @@ let arregloLocalStorageParse =
 
 let arregloUsuarios = JSON.parse(localStorage.getItem("listaUsuarios")) ?? [];
 
-console.log(arregloUsuarios);
-
 formulario.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -91,33 +91,45 @@ formulario.addEventListener("submit", (e) => {
       guardarLocal("listaUsuarios", JSON.stringify(arregloUsuarios));
     }
 
-
     Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'El usuario ah sido registrado',
-        showConfirmButton: false,
-        timer: 2000
-      })
+      position: "top-end",
+      icon: "success",
+      title: "El usuario ah sido registrado",
+      showConfirmButton: false,
+      timer: 2000,
+    });
 
+    setTimeout(function () {
+      window.location.href = "../index.html";
+    }, 2200);
   } else {
     Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'El usuario ingresado es menor de edad.',
-        
-      })
+      icon: "error",
+      title: "Oops...",
+      text: "El usuario ingresado es menor de edad.",
+    });
   }
 });
 
 botonUsuarios.addEventListener("click", () => {
-  contenedorUsuariosRegistrados.style.display = "flex";
-  principial.style.display = "none";
+  if (arregloLocalStorageParse.length === 0 || arregloUsuarios.length === 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No hay usuarios registrados",
+    });
+  } else {
+    contenedorUsuariosRegistrados.style.display = "flex";
+    principial.style.display = "none";
+    botonSalir.style.display = "block";
+  }
 });
 
 for (let index = 0; index < arregloLocalStorageParse.length; index++) {
   let parrafo = document.createElement("p");
-  parrafo.innerHTML = `<p> ${arregloLocalStorageParse[index].nombre} </p>
+  parrafo.innerHTML = `
+  
+       <p> ${arregloLocalStorageParse[index].nombre} </p>
        <p> ${arregloLocalStorageParse[index].apellido} </p>
        <p> ${arregloLocalStorageParse[index].edad} </p>
        <p> ${arregloLocalStorageParse[index].correo} </p>

@@ -5,8 +5,10 @@ body {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 /* ESTILOS PRINCIPAL ****/
@@ -36,24 +38,68 @@ body {
   align-items: center;
 }
 
+#formulario a {
+  text-decoration: none;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 100%;
+  padding: 5px;
+  margin-left: 2px;
+  font-size: 10px;
+}
+
+#formulario a:hover {
+  background-color: #830f0f;
+  border-color: #830f0f;
+}
+
 #formulario h2 {
   color: #fff;
 }
 /* ***********************************************/
 
-
-
 /* CONTENEDOR DATOS DE USUARIOS REGISTRADOS ESTILOS*/
 .contenedorUsuariosRegistrados {
   display: none;
-  background-color: red;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px;
+
+  align-items: flex-start;
+  width: auto;
+  flex-direction: column;
+  overflow: auto;
+  padding: 5px;
+  height: 450px;
+}
+
+.contenedorUsuariosRegistrados p {
+  width: 100%;
+  background-color: rgb(235, 233, 233);
+
+  display: flex;
+  gap: 14px;
   justify-content: center;
-  align-items: center;
-  
- 
-  padding: 50px;
-  gap: 20px;
+  padding: 0;
+}
+
+.contenedorUsuariosRegistrados p p {
+  width: 190px;
+}
+
+.contenedorUsuariosRegistrados .datos {
+  width: 100%;
+
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  padding: 0;
+
+  font-weight: bold;
+}
+
+.contenedorUsuariosRegistrados .datos p {
+  background-color: #fff;
 }
 /* ***********************************************/
 
@@ -248,3 +294,81 @@ button:hover .button-text {
   box-shadow: none;
   transform: translateY(0);
 }
+
+/******************************************************/
+
+/* BOTON SALIR ESTILOS *******************************/
+
+/* From uiverse.io */
+a {
+  text-decoration: none;
+}
+
+a button {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: #e62222;
+}
+
+a button,
+.contenedorUsuariosRegistrados button span {
+  transition: 200ms;
+}
+
+a button .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+}
+
+a button .icon {
+  position: absolute;
+  border-left: 1px solid #c41b1b;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a button svg {
+  width: 15px;
+  fill: #eee;
+}
+
+a button:hover {
+  background: #ff3636;
+}
+
+a button:hover .text {
+  color: transparent;
+}
+
+a button:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+}
+
+a button:focus {
+  outline: none;
+}
+
+a button:active .icon svg {
+  transform: scale(0.8);
+}
+
+#botonSalir {
+  display: none;
+  left: 535px;
+  position: relative;
+}
+/******************************************************/

@@ -1,144 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro De Usuarios</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a href="index.html" id="botonSalir">
+      <button class="noselect">
+        <span class="text">Salir</span
+        ><span class="icon"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+            ></path></svg
+        ></span></button
+    ></a>
 
-<div class="principal">
+    <div class="principal">
+      <h2>Registro de Usuarios</h2>
 
-    <h2>Registro de Usuarios</h2>
-
-    <div class="contenedorDeBotones">
-
+      <div class="contenedorDeBotones">
         <button id="botonAgregar">Agregar Usuario</button>
 
         <button id="botonUsuarios">Usuarios</button>
-
+      </div>
     </div>
 
+    <form action="" id="formulario">
+      <h2>Agregar Usuario<a href="index.html">X</a></h2>
 
-</div>
-
-
-<form action="" id="formulario" >
-
-    <h2>Agregar Usuario</h2>
-
-
-    
-    <div class="form-control">
-
-
-        <input type="text" id="nombre" required="" autocomplete="nope">
+      <div class="form-control">
+        <input type="text" id="nombre" required="" autocomplete="nope" />
         <label>
-            <span style="transition-delay:0ms">N</span>
-            <span style="transition-delay:50ms">o</span>
-            <span style="transition-delay:100ms">m</span>
-            <span style="transition-delay:150ms">b</span>
-            <span style="transition-delay:200ms">r</span>
-            <span style="transition-delay:250ms">e</span>
-
+          <span style="transition-delay: 0ms">N</span>
+          <span style="transition-delay: 50ms">o</span>
+          <span style="transition-delay: 100ms">m</span>
+          <span style="transition-delay: 150ms">b</span>
+          <span style="transition-delay: 200ms">r</span>
+          <span style="transition-delay: 250ms">e</span>
         </label>
+      </div>
 
+      <div class="form-control">
+        <input type="text" id="apellido" required="" autocomplete="nope" />
+        <label>
+          <span style="transition-delay: 0ms">A</span>
+          <span style="transition-delay: 50ms">p</span>
+          <span style="transition-delay: 100ms">e</span>
+          <span style="transition-delay: 150ms">l</span>
+          <span style="transition-delay: 200ms">l</span>
+          <span style="transition-delay: 250ms">i</span>
+          <span style="transition-delay: 250ms">d</span>
+          <span style="transition-delay: 250ms">o</span>
+        </label>
+      </div>
 
+      <div class="form-control">
+        <input
+          type="number"
+          id="edad"
+          required=""
+          autocomplete="nope"
+          min="0"
+        />
+        <label>
+          <span style="transition-delay: 0ms">E</span>
+          <span style="transition-delay: 50ms">d</span>
+          <span style="transition-delay: 100ms">a</span>
+          <span style="transition-delay: 150ms">d</span>
+        </label>
+      </div>
+
+      <div class="form-control">
+        <input type="email" id="correo" required="" autocomplete="nope" />
+        <label>
+          <span style="transition-delay: 0ms">E</span>
+          <span style="transition-delay: 50ms">m</span>
+          <span style="transition-delay: 100ms">a</span>
+          <span style="transition-delay: 150ms">i</span>
+          <span style="transition-delay: 150ms">l</span>
+        </label>
+      </div>
+
+      <div class="form-control">
+        <select id="select">
+          <option value="masculino" id="masculino">Masculino</option>
+          <option value="femenino" id="femenino">Femenino</option>
+        </select>
+      </div>
+
+      <button type="submit" class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Agregar</span>
+      </button>
+
+      <!-- <input type="submit" value="Submit"> -->
+    </form>
+
+    <div
+      class="contenedorUsuariosRegistrados"
+      id="contenedorUsuariosRegistrados"
+    >
+      <div class="datos">
+        <p>Nombre</p>
+        <p>Apellido</p>
+        <p>Edad</p>
+        <p>Correo</p>
+        <p>Genero</p>
+        <p>Id</p>
+      </div>
     </div>
-
-
-
-    <div class="form-control">
-    <input type="text" id="apellido" required="" autocomplete="nope">
-    <label>
-        <span style="transition-delay:0ms">A</span>
-        <span style="transition-delay:50ms">p</span>
-        <span style="transition-delay:100ms">e</span>
-        <span style="transition-delay:150ms">l</span>
-        <span style="transition-delay:200ms">l</span>
-        <span style="transition-delay:250ms">i</span>
-        <span style="transition-delay:250ms">d</span>
-        <span style="transition-delay:250ms">o</span>
-
-    </label>
-   </div>
-
-
-   <div class="form-control">
-    <input type="number" id="edad" required="" autocomplete="nope" min="0">
-    <label>
-        <span style="transition-delay:0ms">E</span>
-        <span style="transition-delay:50ms">d</span>
-        <span style="transition-delay:100ms">a</span>
-        <span style="transition-delay:150ms">d</span>
-    </label>
-   </div>
-
-
-   <div class="form-control">
-    <input type="email" id="correo" required="" autocomplete="nope">
-    <label>
-        <span style="transition-delay:0ms">E</span>
-        <span style="transition-delay:50ms">m</span>
-        <span style="transition-delay:100ms">a</span>
-        <span style="transition-delay:150ms">i</span>
-        <span style="transition-delay:150ms">l</span>
-    </label>
-   </div>
-
-
-
-   <div class="form-control">
-
-
-    <select id="select">
-        
-        <option value="masculino" id="masculino">Masculino</option>
-        <option value="femenino"  id="femenino">Femenino</option>
-        
-      </select>
-
-
-
-
-
-   </div>
-
-
-
-
-
-    
- 
-    
-   <button type="submit"  class="learn-more">
-    <span class="circle" aria-hidden="true">
-    <span class="icon arrow"></span>
-    </span>
-    <span class="button-text">Agregar</span>
-  </button>   
-
-
-
-<!-- <input type="submit" value="Submit"> -->
-
-
-
-
-
-
-</form>
-
-
-<div class="contenedorUsuariosRegistrados" id="contenedorUsuariosRegistrados"></div>
-
-
-    
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
